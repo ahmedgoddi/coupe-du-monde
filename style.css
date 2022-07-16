@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Anek Latin', sans-serif;
+    overflow-x: hidden;
+}
+
+label #btn {
+    background-image: url("images/diamond menu.png");
+    background-size: cover;
+    position: fixed;
+    top: 0.2rem;
+    left: -4rem;
+    width: 7.3rem;
+    height: 7.3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 30px;
+    color: white;
+    font-size: 20px;
+    z-index: 99999;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+label #btn:hover {
+    transform: scale(1.2);
+    left: -1rem;
+    padding: 0 50px;
+}
+
+label #cancel {
+    position: fixed;
+    background-image: url("images/diamond menu.png");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: -195px;
+    top: 17px;
+    font-size: 20px;
+    width: 3rem;
+    height: 3rem;
+    color: white;
+    z-index: 99999;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+#check {
+    display: none;
+}
+#check:checked ~ header .sidebar {
+    left: 0;
+}
+
+#check:checked ~ label #btn {
+    left: 250px;
+    opacity: 0;
+    pointer-events: none;
+}
+#check:checked ~ label #cancel {
+    left: 230px;
+}
+.header-container {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+}
+.sidebar {
+    position: fixed;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    z-index: 9999;
+    background-color: #1C3355;
+    transition: all 0.5s ease;
+    box-shadow: 0px 0px 25px 15px rgba(0, 0, 0, 0.8);
+}
+.navbar {
+    padding-top: 40px;
+    list-style: none;
+}
+.navbar a {
+    text-decoration: none;
+    color: white;
+    transition: all ease 0.5s;
+    font-size: 30px;
+    padding-left: 80px;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    font-weight: bolder;
+    font-style: normal;
+    transition: all .5s ease;
+
+}
+.navbar a:hover {
+    color: #A51D4A;
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.nav-icon a {
+    color: white;
+    margin-left: 2rem;
+}
+.logo {
+    padding-top: 40px;
+    padding-right: 30px;
+}
+.logo img {
+    width: 100%;
+    max-width: 130px;
+    z-index: 999;
+}
+.back-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.hero-video {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 7rem 3rem;
+    text-shadow: -3px 5px 9px rgba(0, 0, 0, 0.45);
+    transition: all .5s ease;
+}
+.hero-video.active {
+    left: 18rem;
+}
+
+.hero-video img {
+    width: 100%;
+    max-width: 25rem;
+}
+.hero-video h2 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: white;
+    margin-left: 1rem;
+}
+
+/*** content ****/
+.title {
+    text-align: center;
+    width: 100%;
+    padding: 3rem 0;
+    background-color: #B11142;
+}
+.title h2 {
+    font-size: 60px;
+    color: white;
+}
+.draw {
+    display: flex;
+    flex-wrap: wrap;
+}
+.draw-item {
+    width: 25%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border: 3px solid #1C3355;
+}
+.draw-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s linear;
+}
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: #1C3355;
+    opacity: 0.9;
+    font-size: 50px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transition: all 0.3s linear;
+}
+.overlay a {
+    color: white;
+    transition: all 0.5s ease;
+}
+.overlay a:hover {
+    color: black;
+}
+.draw-item:hover .overlay {
+    top: 0;
+}
+.draw-item:hover img {
+    transform: scale(1.1);
+}
+.content {
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.content .item {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    transition: all ease 0.8s;
+}
+.content .item img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    transition: all 1s ease;
+}
+.content .item .img2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.content .item:hover .img2 {
+    opacity: 1;
+}
+.content .item:hover .img1 {
+    opacity: 0;
+}
+
+.content .item:hover {
+    width: 200%;
+}
+.content .item .text {
+    position: absolute;
+    left: 0;
+    bottom: -50px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding: 50px 50px 100px;
+    display: flex;
+    align-items: flex-end;
+    opacity: 0;
+    transition: all ease 0.5s 0.2s;
+}
+.content .item:hover .text {
+    opacity: 1;
+    bottom: 0;
+}
+.content .item .text h3 {
+    font-size: 35px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-shadow: -3px 5px 9px rgba(0, 0, 0, 1);
+}
+
+
+.stadium {
+    display: flex;
+    flex-wrap: wrap;
+}
+.stadium-item {
+    width: 25%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.stadium-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s linear;
+}
+.overlay h2 {
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+.overlay p {
+    font-size: 20px;
+    margin-left: 1rem;
+    line-height: 1.5;
+}
+
+.stadium-item:hover .overlay {
+    top: 0;
+}
+.stadium-item:hover img {
+    transform: scale(1.1);
+}
+
+.footer-copyright {
+    width: 100%;
+    text-align: center;
+    padding: 3rem 0;
+    background-color: rgb(20,43, 77);
+    color: white;
+}
+
+.phase-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-image: url("images/background-phase.jpg");
+}
+.title-round {
+    text-align: center;
+    padding: 1rem 0;
+    width: 200px;
+    margin: 0 auto;
+    border-left: 2px solid #5D1020;
+    border-top: 2px solid #5D1020;
+    border-right: 2px solid #5D1020;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    margin-top: 1rem;
+    background-color: #5A1021;
+    color: white;
+}
+.groupe-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-right: 2px solid grey;
+    width: 100%;
+}
+.match-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.match-container p {
+    color: #5D1020;
+    font-size: 20px;
+    margin-bottom: 1rem;
+    border: 2px solid ;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    font-weight: bolder;
+}
+.match-logo {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    color: white;
+}
+.match-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+.match-logo span {
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 0 0.5rem;
+}
+.match-title {
+    display: flex;
+    align-items: center;
+    margin-top: 0.4rem;
+    color: white;
+}
+.match-title h4 {
+    font-weight: 500;
+}
+.match-title span {
+    font-weight: bolder;
+    font-size: 15px;
+    padding: 0 0.5rem;
+}
+
+.footer-copyright .link a {
+    color: white;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+
+@media screen and (max-width: 750px) {
+    .hero-video {
+        padding: 2rem 3rem;
+    }
+    .hero-video h2 {
+        font-size: 1.3rem;
+    }
+    .hero-video img {
+        width: 100px;
+    }
+    .logo {
+        padding-top: 20px;
+    }
+    .logo img {
+        width: 70px;
+    }
+    .draw-item {
+        flex-basis: 50%;
+    }
+    .title h2 {
+        font-size: 1.5rem;
+    }
+    .content .item:hover {
+        width: 800%;
+    }
+    .footer-copyright p {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 1150px){
+    .phase-container {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 580px){
+    .draw-item {
+        flex-basis: 100%;
+    }
+    .stadium-item {
+        flex-basis: 100%;
+    }
+    .phase-container {
+        flex-wrap: wrap;
+    }
+    .match-container p {
+        font-size: 12px;
+    }
+    .match-title h4 {
+        font-size: 12px;
+    }
+    .match-title span {
+        font-size: 12px;
+    }
+    .match-logo img {
+        width: 40px;
+        height: 40px;
+    }
+    .match-container p {
+        padding: 0.5rem 0.5rem;
+    }
+}
